@@ -1,0 +1,48 @@
+package onboardingCodingChallenge1;
+
+import java.util.*;
+
+/**
+Imagine you are responsible for a portfolio of profitable stocks represented in an array. 
+Each item in the array represents the yearly profit of a corresponding stock. 
+The analyst gathers all distinct pairs of stocks that reached the target profit. 
+Distinct pairs are pairs that differ in at least one element. Given the array of profits, 
+find the number of distinct pairs of stocks where the sum of each pair’s profits is 
+exactly equal to the target sum.
+Example:
+stocksProfit = [5, 7, 9, 13, 11, 6, 6, 3, 3]
+target = 12 profit's target
+ * 
+ * **/
+
+public class challenge1 {
+
+	public static void main(String[] args) {
+		int[] a = {5, 7, 9, 13, 11, 6, 6, 3, 3};
+		int target = 12;
+		
+		findPairs(a, target);
+		
+
+	}
+	
+	 public static void findPairs(int[] nums, int k) {
+	        if(k < 0) return 0;
+	        Map<Integer,Integer> map = new HashMap<>();
+	        for(int i : nums){
+	            map.put(i, map.getOrDefault(i, 0) + 1);
+	        }
+	        int count = 0;
+	        for(int m : map.keySet()){
+	            if(k == 0){
+	                if(map.get(m) >= 2) count++;
+	            }
+	            else
+	            {if(map.containsKey(m + k))
+	                count++;
+	            }
+	        }
+	        System.out.println(count);
+	    }
+
+}

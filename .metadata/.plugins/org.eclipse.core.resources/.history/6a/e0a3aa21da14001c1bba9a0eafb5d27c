@@ -1,0 +1,10 @@
+package onboardingCodingChallenge1;
+
+public class stockPair {
+	private int a;
+	private int b;
+	public stockPair(int a, int b) {
+		this.a = a;
+		this.b = b;
+	}
+}
